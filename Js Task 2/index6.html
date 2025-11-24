@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Task Q6</title>
+</head>
+<body>
+
+    <script>
+        function isPandigital(num){
+            let count=0;
+            for(let i =0; i<=9 ; i++)
+        {
+            if (num.includes(i)){
+            count+=1;}
+        }
+
+        if(count==10)
+        return true;
+        else
+         return false;
+
+        }
+
+        document.writeln(isPandigital("7775")+"<br>");
+        document.writeln(isPandigital("771203468975"));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Js</title>
+</head>
+<body>
+    <script>
+        let name= "Jenan Emad Mohammad Friejah";
+
+        // String trim()
+        document.writeln(name.trim()+"<br>"); //remove the spaces at the begining and ending of the string
+        // String trimStart()
+        document.writeln(name.trimStart()+"<br>"); //remove the spaces at the begining (only) of the string
+        // String trimEnd()
+        document.writeln(name.trimEnd()+"<br>"); //remove the spaces at the ending (only) of the string
+        //String padStart()
+        document.writeln(name.padStart(40, "_")+"<br>");//will add padding at the begining of the string(40 is the final length of the string after the addition)
+        //String padEnd()
+        document.writeln(name.padEnd(40, "_")+"<br>"); // will add padding at the end of the string (40 is the final length of the string after the addition)
+        //String charAt()
+        document.writeln(name.charAt(2)+"<br>");// Return the char at a specific index
+        //String charCodeAt()
+        document.writeln(name.charCodeAt(8)+"<br>")// Return the unicode of the specific character that we call it by its index
+        //String split()
+        document.writeln(name.split(" ")+"<br>")//split the string depends on the passing element 
+        //String length
+        document.writeln(name.length+"<br>");// its return the total current length of the string
+        //String slice()
+        document.writeln(name.slice(0,8)+"<br>");// slice (start, end) , its return a slice from the string that we determine the start and the end of it .
+        //String substring()
+        document.writeln(name.substring(0,4)+"<br>");
+       //The main differences between substring() and slice() are:
+       // - that the slice support the negative numbers in the other hand the substring does not ,
+       // - if the start>end the substring will swap them , but the slice will return an empty text 
+
+       //String substr()
+       document.writeln(name.substr(0,8)+"<br>"); //string.substr(start,length) while start is the begingin of cuting the string if its negative will start from the end.
+       //length here mean the number of chars that we will include it not as index like substring or slice.
+
+       //String replace() 
+       document.writeln(name.replace("a","*")+"<br>"); //will replace only the first a
+       document.writeln(name.replace(/a/g,"*")+"<br>");//will replace all a's 
+
+       //String replaceAll()
+       document.writeln(name.replaceAll("e","R")+"<br>"); // will replace all e's with R
+
+       //String toUpperCase() 
+       document.writeln(name.toUpperCase()+"<br>");
+
+       //String toLowerCase()
+       document.writeln(name.toLowerCase()+"<br>");
+
+       //String concat()
+       let age = 21; 
+       document.writeln(name.concat(age)+"<br>");
+
+       //String indexOf() (case-sensitive)
+       document.writeln(name.indexOf("a")+"<br>"); //return tha first index found of the specific character
+
+       //String lastIndexOf()
+       document.writeln(name.lastIndexOf("a")+"<br>");//return the last index of the specific character 
+
+       //String search()  //Pattern // can ignore case sensitive
+       document.writeln(name.search(/E/i)+"<br>") //The main differences between index of() and search() its that a search function use regular expression
+
+       //String match()
+       document.writeln(name.match("Ola")+"<br>"); //it the text match will return it if not will return null
+
+       //String matchAll()
+       let matches = name.matchAll(/j/g);
+       matches.forEach(m => document.writeln(m[0] + "<br>"));
+       
+       //String includes() (boolean)
+       document.writeln(name.includes("a")+"<br>"); // return true if contain the specific element and false either
+
+       //String startsWith() (boolean)
+       document.writeln(name.startsWith("E")+"<br>"); // if the string starts with the specific element will return true otherwies will be false
+
+       //String endsWith() (boolean)
+       document.writeln(name.endsWith("h"))//// if the string ends with the specific element will return true otherwies will be false
+
+    </script>
+</body>
+</html>

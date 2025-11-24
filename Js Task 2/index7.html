@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Task Q7</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <script>
+        let drink = prompt("Please enter your favorite drink here");
+
+        switch (drink){
+
+            case "banana":
+             result= "The price of a banana drink is 20 dollars";
+             break;
+
+            case "apple":
+             result= "The price of a apple drink is 10 dollars";
+             break;
+
+              case "mango":
+             result= "The price of a mango drink is 50 dollars";
+             break;
+
+              case "orange":
+             result= "The price of a orange drink is 25 dollars";
+             break;
+
+              case "grape":
+             result= "The price of a grapes drink is 25 dollars";
+             break;
+
+             default:
+                result= "Sorry , this drink is not available in our shop"
+
+        }
+
+
+        swal.fire(result);
+
+    </script>
+</body>
+</html>
