@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+</head>
+<body>
+    <script>
+
+
+        //Q1
+        let nums = [4,9,300];
+        function doubleNumber (arr){
+         return arr.map(function(num){
+         return num*2;}
+        )};
+
+        console.log(doubleNumber([4,9,300]));
+         
+        //Q2
+
+        let nums2 = [6,8,564];
+        function StringItUp (arr) {
+            return arr.map(function(num){
+            return num.toString(); } 
+        )};
+
+        console.log(StringItUp([6,8,564]));
+
+        //Q3
+// 
+        let names = ['james','sara','schmidt','hala','sozan'];
+        
+        function capitalizeNames (arr){
+            return arr.map(function(name,index){
+            return name[0].toUpperCase()+ name.slice(1).toLowerCase()  ;
+            })};
+       
+        console.log(capitalizeNames(['james','sara','schmidt','hala','sozan']));
+
+        //Q4
+
+        let studentInfo = [{name:"sara" , age:32},{name:"ola" , age:27},{name:"hala" , age:21},{name:"yasser" , age:24}];
+
+        function namesOnly (arr){ return arr.map(function(element,index){
+            return element.name;
+        })};
+       
+        console.log(namesOnly([{name:"sara" , age:32},{name:"ola" , age:27},{name:"hala" , age:21},{name:"yasser" , age:24}]));
+      
+        //Q5
+
+        // let studentInfo = [{name:"sara" , age:32},{name:"ola" , age:27},{name:"hala" , age:21},{name:"yasser" , age:24}];
+
+           function makeString (arr){ 
+            return arr.map(function(person,index){
+           if(person.age>25)
+             return person.name+" can go to the Matrix";
+           else 
+            return person.name+" is under age!";
+        })};
+
+        console.log(makeString([{name:"sara" , age:32},{name:"ola" , age:27},{name:"hala" , age:21},{name:"yasser" , age:24}]));
+
+        //Q6
+
+        function readyToPutInTheDOM(arr){
+           return arr.map(function(student,index){
+                return `<h1>${student.name}</h1><h2>${student.age}</h2>`;
+            });
+        }
+        
+     
+        console.log(readyToPutInTheDOM([{name:"sara" , age:32},{name:"ola" , age:27},{name:"hala" , age:21},{name:"yasser" , age:24}]));
+
+        //Q7
+
+        //let nums = [4,9,300];
+        function positiveNumbers(arr){
+            return arr.map(function(num){
+                if(num<0){
+                    return num*-1;
+                }
+                else
+                return num;
+            })
+        }
+        console.log(positiveNumbers([2,-4,-6]));
+
+
+        //Q8
+        let num3 = [1,2,3];
+         function valTimesIndex(arr){ 
+            return arr.map(function(num,index){
+                return num*index;
+            });
+         }
+
+         console.log(valTimesIndex([1,2,3]));
+
+         //Q9
+         function extractKey(arr,key){
+            return arr.map (function(element){
+                return element.name;
+            });
+         }
+
+         console.log(extractKey([{name:"sara"},{name:"ola"},{name:"hala"},{name:"yasser"}]));
+
+         //Q10
+
+          function extractFullName (arr) {
+            return arr.map(function(key){
+                return (key.first+" ").concat(key.last);
+             });
+          }
+
+        console.log(extractFullName([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia"}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele"}])) ;
+
+
+
+
+
+    </script>
+</body>
+</html>
