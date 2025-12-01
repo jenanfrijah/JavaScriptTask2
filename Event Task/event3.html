@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event3</title>
+</head>
+<body>
+    <form id="myForm">
+       <label>Password (min 6 characters) <input type="password" id="pass" style="display: block;"></label>
+       <span id="passError" style="color: red;"></span>
+       <br>
+       <label>Repeat password <input type="password" id="passConf" style="display: block;"></label>
+       <span id="passConError" style="color: red;"></span>
+       <br>
+         <input type="submit">
+    </form>
+    <script>
+        let password = document.getElementById('pass');
+        let passConfig = document.getElementById('passConf');
+        let myForm = document.getElementById('myForm');
+        myForm.addEventListener('submit',function(e){
+             e.preventDefault();
+
+           if (password.value.length < 8 ){
+            document.getElementById('passError').innerText ='too short';
+           }
+           else
+           document.getElementById('passError').innerText ='';
+
+           if(password.value!=passConfig.value){
+            document.getElementById('passConError').innerText ='the two passwords don\'t match';
+           }
+           else
+           document.getElementById('passConError').innerText ='';
+
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event2</title>
+</head>
+<body>
+    <form id="myForm">
+        <select id="dropDown">
+            <option id="norway" value="Norway-flag">Norway</option>
+            <option id="usa" value="usa-flag">USA</option>
+            <option id="china" value="china-flag">China</option>
+            <option id="japan" value="japan-flag" >japan</option>
+        </select>
+
+        <img id="flagImage" src="" alt="flag Image" width="300"  style="display: block;">
+    </form>
+
+    <script>
+        let select = document.getElementById('dropDown');
+        let flagImg = document.getElementById('flagImage');
+
+        select.addEventListener('change',function(e){
+            let choice = select.value;
+           if ( choice == "Norway-flag"){
+             flagImg.src='flags/norway.png' ;
+           }
+            else if ( choice == "china-flag"){
+             flagImg.src='flags/china.png' ;
+           }
+           else if ( choice == "usa-flag"){
+             flagImg.src='flags/usa.png' ;
+           }
+            else if ( choice == "japan-flag"){
+             flagImg.src='flags/japan.png' ;
+           }
+            else {
+            img.src = ''; 
+        }
+        })
+    </script>
+</body>
+</html>

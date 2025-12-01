@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event5</title>
+</head>
+<body>
+    <form id="myForm"></form>
+
+        <select  id="dropDown1">
+            <option value="arial">arial</option>
+            <option value="sans-serif">sans-serif</option>
+            <option value="mongo">mongo</option>
+        </select>
+        <select  id="dropDown2">
+            <option value="font1">20pt</option>
+            <option value="font2">50pt</option>
+            <option value="font3">70pt</option>
+        </select>      
+        <label>Italic<input type="checkbox" id="italic"></label> 
+        <label>Bold<input type="checkbox"   id="bold"></label>
+        <label>Underline<input type="checkbox"   id="underline"></label>
+        <textarea id="text" style="display: block;"></textarea>
+    </form>
+
+    <script>
+
+        let select1 = document.getElementById('dropDown1');
+        let select2 = document.getElementById('dropDown2');
+        let  italic = document.getElementById('italic');
+        let  bold = document.getElementById('bold');
+        let  underline = document.getElementById('underline');
+        let text = document.getElementById('text');
+
+        select1.addEventListener('change',function(e){
+           let choice = select1.value ;
+           
+           if(choice == 'arial'){
+            text.style.fontFamily = 'Arial';
+           }
+             if(choice == 'sans-serif'){
+            text.style.fontFamily = 'Unica One';
+           }
+            if(choice == 'mongo'){
+            text.style.fontFamily = 'monospace';
+           }
+            if(choice==''){
+            text.style.fontFamily='';
+          }
+        })
+
+        select2.addEventListener('change',function(e){
+          let choice = select2.value;
+          if(choice=='font1'){
+            text.style.fontSize='20pt';
+          }
+          if(choice=='font2'){
+            text.style.fontSize='50pt';
+          }
+          if(choice=='font3'){
+            text.style.fontSize='70pt';
+          }
+          if(choice==''){
+            text.style.fontSize='';
+          }
+        });
+
+        italic.addEventListener('change',function(e){
+           if(italic.checked){
+            text.style.fontStyle = 'italic';
+           }
+           else
+            text.style.fontStyle = 'normal';
+        })
+          bold.addEventListener('change',function(e){
+           if(bold.checked){
+            text.style.fontWeight = 'bold';
+           }
+           else
+            text.style.fontWeight = 'normal';
+        })
+
+          underline.addEventListener('change',function(e){
+           if(underline.checked){
+             text.style.textDecoration = 'underline';
+           }
+           else
+            text.style.textDecoration = 'normal';
+        })
+
+    </script>
+
+</body>
+</html>

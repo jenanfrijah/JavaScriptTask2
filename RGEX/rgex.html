@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGEX</title>
+    <link rel="stylesheet" href="rgex.css">
+</head>
+<body>
+
+
+    <form id="myForm">
+     <label>First Name<input type="text" id="firstName" ></label>
+     <span id="nameError"></span>
+     <label>last Name<input type="text" id="lastName"></label>
+     <span id="lastNameError"></span>
+     <label>birth date<input type="date"  id="birthDate"></label>
+     <span id="dateError"></span>
+     <label>email<input type="email"  id="email"></label>
+     <span id="emailError"></span>
+     <label>email confirmation <input type="email"  id="emailCon"></label>
+     <span id="emailConError"></span>
+     <label>password<input type="password" id="pass"></label>
+     <span id="passError"></span> 
+     <label>password confirmation<input type="password" id="passCon"></label>
+     <span id="passConError"></span>
+     <label>Mobile Number <input type="tel" id="mobileNumber"></label>
+     <span id="mobileNumberError"></span>
+     <input type="submit">
+    </form>
+    <script>
+
+     document.getElementById('myForm').addEventListener('submit',function(e){
+        e.preventDefault();
+
+
+         //name rgex
+        let name = document.getElementById('firstName').value;
+        let nameRgex = /^[A-Za-z]+$/;
+
+        if(!nameRgex.test(name)){
+            document.getElementById('nameError').innerText = 'invalid name : only letters allowed ';
+        }
+
+        else
+          document.getElementById('nameError').innerText='';
+       
+
+        let name2 = document.getElementById('lastName').value;
+        let nameRgex2 = /^[A-Za-z]+$/;
+
+        if(!nameRgex2.test(name2)){
+            document.getElementById('lastNameError').innerText = 'invalid name : only letters allowed ';
+        }
+
+        else
+          document.getElementById('lastNameError').innerText='';
+       
+
+        //date rgex
+        let date = document.getElementById('birthDate').value ;
+        let today = new Date();
+        let age = new Date().getFullYear()- new Date(date).getFullYear();
+        
+        if(!date){
+            document.getElementById('dateError').innerText='please enter your birthdate';
+        }
+        else if (new Date(date)>today)
+        document.getElementById('dateError').innerText =' birthdate cannot be in the future';
+
+        else if (age<18)
+        document.getElementById('dateError').innerText =' You must be at least 18 years old';
+
+         else
+          document.getElementById('dateError').innerText='';
+       
+
+        //email rgex
+
+        let email = document.getElementById('email').value;
+        let emailRegex = /^[A-Za-z0-9]+@gmail\.com$/;
+
+        if(!emailRegex.test(email)){
+        document.getElementById('emailError').innerText ='Invalid email: must be a Gmail address (example@gmail.com)'
+        }
+         else
+          document.getElementById('emailError').innerText='';
+       
+
+        //email config
+        let emailConfig = document.getElementById('emailCon').value;
+
+        if(email!=emailConfig){
+            document.getElementById('emailConError').innerText='Emails do not match';
+        }
+          else
+          document.getElementById('emailConError').innerText='';
+       
+
+        //password rgex
+         
+        let password = document.getElementById('pass').value ;
+       let passRegex = /^(?=[A-Z])(?=(.*\d){2,})(?=.*[.,*_,$,#,+]).{8,32}$/;
+
+       if(!passRegex.test(password)){
+       document.getElementById('passError').innerText='Password must start with a capital letter, have at least 2 numbers, 1 special character, and be 8-32 characters long.'
+       }
+          else
+          document.getElementById('passError').innerText='';
+       
+    //pass config
+
+        let passwordConfig = document.getElementById('passCon').value ;
+          
+       if(password!=passwordConfig){
+       document.getElementById('passConError').innerText='Passwords do not match ';
+       }
+       else
+          document.getElementById('passConError').innerText='';
+       
+
+    //Mobile Number regex
+
+     let mobileNumber = document.getElementById('mobileNumber').value;
+     mobileNumberRegex = /^\d{10}$/;
+
+     if(!mobileNumberRegex.test(mobileNumber))
+     {
+        document.getElementById('mobileNumberError').innerText='The phone Number must be 10 digits';
+     }
+      else
+          document.getElementById('mobileNumberError').innerText='';
+       
+     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+    </script>
+</body>
+</html>
