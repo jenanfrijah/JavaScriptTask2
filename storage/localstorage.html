@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task one</title>
+    <style>
+        label{display: block;}
+    </style>
+</head>
+
+<body>
+
+    <form id="personalForm">
+      <label> Name: </label> <input type="text" id="name"><br>
+      <label>Age: </label> <input type="number" id="age"><br>
+      <label>Gender:</label> 
+      <input type="radio" name="gender" value="Female"> Female
+      <input type="radio" name="gender" value="Male"> Male<br>
+        
+       <label> Description: </label><textarea id="description"></textarea><br>
+        <label>Major & University: </label><input type="text" id="major"><br>
+        Programming Languages:<br>
+        <input type="checkbox" name="language" value="JavaScript"> JavaScript<br>
+        <input type="checkbox" name="language" value="Python"> Python<br>
+        <input type="checkbox" name="language" value="C++"> C++<br>
+        <input type="checkbox" name="language" value="Java"> Java<br>
+        <input type="checkbox" name="language" value="HTML"> HTML<br>
+        <button type="button" onclick="submitData()" style="margin-top: 1%;">Submit</button>
+    </form>
+
+    <div id="card" style="background-color: lightgray; padding: 5px; border-radius: 10px; width: fit-content; margin-top:5%;"></div>
+
+</body>
+
+<script>
+    function submitData() {
+        localStorage.setItem("name", document.getElementById("name").value);
+        localStorage.setItem("age", document.getElementById("age").value);
+        let gender = document.querySelector('input[name="gender"]:checked');
+        localStorage.setItem("gender", gender.value);
+        localStorage.setItem("description", document.getElementById("description").value);
+        localStorage.setItem("major", document.getElementById("major").value);
+
+        let checkboxes = document.querySelectorAll('input[name="language"]:checked');// بترجع array
+        let languages = "";
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (i > 0)
+                languages += ", ";
+            languages += checkboxes[i].value;
+        }
+
+        localStorage.setItem("languages", languages);
+
+        renderData();
+    }
+
+    function renderData() {
+        let name = localStorage.getItem("name");
+        let age = localStorage.getItem("age");
+        let gender = localStorage.getItem("gender");
+        let description = localStorage.getItem("description");
+        let major = localStorage.getItem("major");
+        let languages = localStorage.getItem("languages");
+
+        if (name) { //لو قيمة ال  موجودة بكمل name 
+            document.getElementById("card").innerHTML = `
+            <div>
+                <h3>${name}</h3>
+                <p>Age: ${age}</p>
+                <p>Gender: ${gender}</p>
+                <p>Description: ${description}</p>
+                <p>Major & University: ${major}</p>
+                <p>Languages: ${languages}</p>
+            </div>
+        `;
+        }
+    }
+    renderData();
+</script>
+
+</body>
+</html>
+

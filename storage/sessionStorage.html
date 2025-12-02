@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task two</title>
+</head>
+<style>
+        label{display: block;}
+    </style>
+<body>
+
+    <form id="projectForm">
+       <label>Subject:</label>  <input type="text" id="subject"><br>
+       <label> Description:</label> <textarea id="description"></textarea><br>
+       <label> User Types:</label> <input type="text" id="userTypes"><br>
+        Technology Used:<br>
+        <input type="checkbox" name="tech" value="HTML"> HTML<br>
+        <input type="checkbox" name="tech" value="CSS"> CSS<br>
+        <input type="checkbox" name="tech" value="JavaScript"> JavaScript<br>
+        <input type="checkbox" name="tech" value="Python"> Python<br>
+        <input type="checkbox" name="tech" value="Java"> Java<br>
+        <button type="button" onclick="submitProject()" style="margin-top: 1%;">Submit</button>
+    </form>
+
+    <div id="projectCards" id="card" style="background-color: lightgray; padding: 5px; border-radius: 10px; width: fit-content; margin-top:5%;"></div>
+</body>
+<script>
+    function submitProject() {
+        sessionStorage.setItem("subject", document.getElementById("subject").value);
+        sessionStorage.setItem("description", document.getElementById("description").value);
+        sessionStorage.setItem("userTypes", document.getElementById("userTypes").value);
+
+        let techCheckboxes = document.querySelectorAll('input[name="tech"]:checked');
+        let technologies = "";
+        for (let i = 0; i < techCheckboxes.length; i++) {
+            if (i > 0) technologies += ", ";
+            technologies += techCheckboxes[i].value;
+        }
+        sessionStorage.setItem("technologies", technologies);
+
+        renderProject();
+    }
+
+    function renderProject() {
+        let subject = sessionStorage.getItem("subject");
+        let description = sessionStorage.getItem("description");
+        let userTypes = sessionStorage.getItem("userTypes");
+        let technologies = sessionStorage.getItem("technologies");
+
+        if (subject) {
+            document.getElementById("projectCards").innerHTML = `
+            <div>
+                <h3>${subject}</h3>
+                <p>Description: ${description}</p>
+                <p>User Types: ${userTypes}</p>
+                <p>Technology Used: ${technologies}</p>
+            </div>
+        `;
+        }
+    }
+
+    renderProject();
+</script>
+
+</html>
